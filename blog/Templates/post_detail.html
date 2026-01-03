@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>{{ post.title }}</h2>
+  <p><small>by {{ post.author.name }} — {{ post.created_at }}</small></p>
+
+  <p>{{ post.body }}</p>
+
+  <hr>
+  <h3>Comments</h3>
+
+  {% for c in comments %}
+    <p><strong>{{ c.commenter_name }}</strong>: {{ c.content }}</p>
+  {% empty %}
+    <p>No comments yet.</p>
+  {% endfor %}
+{% endblock %}
